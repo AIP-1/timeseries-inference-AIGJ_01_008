@@ -1,0 +1,6 @@
+{
+ "params": 56728,
+ "pt_file_kb": 225.3,
+ "onnx_file_kb": 225.5,
+ "ort_session_rss_mb": 17.8
+}

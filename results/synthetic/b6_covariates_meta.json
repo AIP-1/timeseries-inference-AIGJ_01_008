@@ -1,0 +1,28 @@
+{
+ "model": "amazon/chronos-2",
+ "device": "cuda",
+ "params": 119477664,
+ "load_sec": 1.8,
+ "contexts_h": [
+  24,
+  168
+ ],
+ "gpu_model_mb": 455.8,
+ "gpu_peak_mb": 642.4,
+ "rss_mb": 2211.8,
+ "timing_batch1_24h": {
+  "A_co2만": {
+   "mean_ms": 87.9,
+   "p95_ms": 89.9
+  },
+  "B_온습도": {
+   "mean_ms": 91.8,
+   "p95_ms": 92.4
+  },
+  "C_온습도_일정시각": {
+   "mean_ms": 92.2,
+   "p95_ms": 94.6
+  }
+ },
+ "chronos_version": "2.3.2"
+}

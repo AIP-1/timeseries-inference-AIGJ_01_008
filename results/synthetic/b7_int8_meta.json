@@ -1,0 +1,11 @@
+{
+ "power_mode": "NV Power Mode: 25W",
+ "clocks_locked": false,
+ "warmup": 50,
+ "iters": 500,
+ "calib_n": 1024,
+ "calib_batch": 32,
+ "workspace_mb": 64,
+ "tensorrt": "10.16.2.10",
+ "기준": "PyTorch CPU FP32 출력"
+}

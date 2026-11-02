@@ -1,0 +1,5 @@
+# 익명 사용자: 읽기만
+topic read team2-2/#
+# 서비스 계정: 읽기·쓰기
+user t22-writer
+topic readwrite team2-2/#

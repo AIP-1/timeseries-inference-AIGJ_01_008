@@ -1,0 +1,19 @@
+{
+ "model": "amazon/chronos-bolt-small",
+ "device": "cpu",
+ "threads": 4,
+ "params": 47718016,
+ "load_sec": 1.5,
+ "rss_model_mb": 213.3,
+ "rss_total_mb": 2012.9,
+ "timing": {
+  "배치1": {
+   "mean_ms": 116.55,
+   "p95_ms": 225.5
+  },
+  "배치4": {
+   "mean_ms": 117.69,
+   "p95_ms": 137.12
+  }
+ }
+}

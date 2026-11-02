@@ -1,0 +1,90 @@
+# 수집기 설정. 메시지 형식이 바뀌거나 새 센서·새 토픽이 생기면 이 파일만 고치고
+#   docker compose restart collector
+# 로 반영한다. 코드는 고치지 않는다.
+#
+# 경로 문법: 점(.)으로 중첩 키, 숫자는 배열 인덱스. 예) rxInfo.0.rssi
+# 토픽 조각: topic.N = 토픽을 /로 나눈 N번째 조각(0부터). 예) xflow/hvacr/idu/<id>/status → topic.2 = idu
+
+mqtt:
+  client_id: team2-2-collector   # 팀원 수집기(team2-collector)와 달라야 서로 끊지 않는다
+  qos: 1
+  clean_session: false           # 잠깐 끊겨도 브로커가 보관한 메시지를 다시 받는다
+  keepalive: 30
+  reconnect_min: 1               # 재접속 대기(초): 1초부터 두 배씩, 최대 30초
+  reconnect_max: 30
+  # 브로커에 구독할 토픽. 겹치는 패턴을 따로 구독하면 같은 메시지가 두 번 오므로 넓은 패턴 하나로 받는다.
+  # 받은 메시지는 아래 sources를 위에서부터 보고 처음 맞는 규칙으로 해석한다.
+  subscribe:
+    - application/+/device/+/event/up
+    - xflow/#
+
+influx:
+  batch_size: 500                # 이만큼 모이거나
+  flush_seconds: 2               # 이 시간이 지나면 쓴다
+  max_pending: 200000            # InfluxDB 장애 시 메모리에 보관할 최대 포인트 수
+
+dedup_window: 20000              # 최근 이만큼의 메시지 ID를 기억해 재전송을 거른다
+
+sources:
+  # 1) 환경 센서 (ChirpStack LoRaWAN 업링크)
+  - name: chirpstack
+    topic: application/+/device/+/event/up
+    # 시각: 네트워크 서버 수신 시각(nsTime). 메시지 최상위 time은 게이트웨이 시계(gwTime)라서
+    # 게이트웨이 24e124fffef5dccc 시계가 약 295초 빨라 미래 시각이 찍힌다(2026-10-20 확인).
+    time: { path: rxInfo.0.nsTime, format: iso }
+    dedup: [deduplicationId]
+    tags:
+      location: deviceInfo.tags.location
+      device: deviceInfo.deviceName
+      model: deviceInfo.deviceProfileName
+      gateway: rxInfo.0.gatewayId            # 게이트웨이별 시계 차이 분석용
+    outputs:
+      - measurement: env
+        fields_from: object                  # object 안의 숫자 값 전부 → 새 기종도 자동 대응
+        rename: {}                           # 예) { LAeq: noise_db }
+        exclude: []
+      - measurement: uplink                  # 결측 원인 분석용 통신 품질
+        fields: { fcnt: fCnt, rssi: rxInfo.0.rssi, snr: rxInfo.0.snr, dr: dr }
+
+  # 2) 냉난방 실내기·실외기 (xflow). 메시지: {"ts": <ms>, "values": {"<이름>": {필드…}}}
+  #    토픽: xflow/hvacr/<idu|odu>/<장비 id>/status
+  - name: xflow-unit
+    topic: xflow/hvacr/+/+/status
+    time: { path: ts, format: epoch_ms }
+    dedup: [topic, ts]
+    tags:
+      unit_type: topic.2                     # idu(실내기) / odu(실외기)
+      unit_id: topic.3
+    outputs:
+      - measurement: hvac
+        fields_from: values
+        keyed_by: name                       # values의 키(예: 회의실, 개발실-실내기)를 name 태그로
+        rename: {}
+        exclude: []
+
+  # 3) 냉난방 컨트롤러. 토픽: xflow/controller/<id>/status
+  - name: xflow-controller
+    topic: xflow/controller/+/status
+    time: { path: ts, format: epoch_ms }
+    dedup: [topic, ts]
+    tags:
+      unit_type: topic.1                     # controller
+      unit_id: topic.2
+    outputs:
+      - measurement: hvac
+        fields_from: values
+        keyed_by: name
+        rename: {}
+        exclude: []
+
+  # 그 밖의 xflow 토픽이 생기면 받아 두기만 한다(형식을 보고 위처럼 source를 추가)
+  - name: xflow-other
+    topic: xflow/#
+    time: { path: ts, format: epoch_ms }
+    dedup: [topic, ts]
+    tags:
+      topic: topic
+    outputs:
+      - measurement: hvac_other
+        fields_from: values
+        keyed_by: name

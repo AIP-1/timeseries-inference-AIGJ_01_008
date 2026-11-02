@@ -1,0 +1,21 @@
+조합,방법,split,MAE_5분,MAE_15분,MAE_30분,MAE_60분,지점수_60분
+GRU+bolt-small,GRU 단독,val,7.84,11.92,16.27,21.12,8009
+GRU+bolt-small,GRU 단독,test,7.26,10.49,14.03,20.52,6045
+GRU+bolt-small,Chronos-Bolt-small 단독,val,10.44,16.47,25.11,37.13,8009
+GRU+bolt-small,Chronos-Bolt-small 단독,test,9.44,13.74,19.75,30.4,6045
+GRU+bolt-small,단순 평균(0.5:0.5),val,8.21,12.8,18.53,26.22,8009
+GRU+bolt-small,단순 평균(0.5:0.5),test,7.56,10.84,14.96,23.03,6045
+GRU+bolt-small,"검증 비중(GRU 0.95, 60분 기준)",val,7.74,11.83,16.15,21.07,8009
+GRU+bolt-small,"검증 비중(GRU 0.95, 60분 기준)",test,7.16,10.33,13.82,20.35,6045
+GRU+bolt-small,검증 비중(예측 거리별),val,7.66,11.79,16.15,21.07,8009
+GRU+bolt-small,검증 비중(예측 거리별),test,7.07,10.23,13.69,20.35,6045
+GRU+bolt-base,GRU 단독,val,7.84,11.92,16.27,21.12,8009
+GRU+bolt-base,GRU 단독,test,7.26,10.49,14.03,20.52,6045
+GRU+bolt-base,Chronos-Bolt-base 단독,val,9.85,15.43,23.23,35.48,8009
+GRU+bolt-base,Chronos-Bolt-base 단독,test,8.48,12.11,17.21,27.85,6045
+GRU+bolt-base,단순 평균(0.5:0.5),val,8.04,12.37,17.73,25.52,8009
+GRU+bolt-base,단순 평균(0.5:0.5),test,7.18,10.18,13.9,21.85,6045
+GRU+bolt-base,"검증 비중(GRU 0.95, 60분 기준)",val,7.75,11.82,16.14,21.06,8009
+GRU+bolt-base,"검증 비중(GRU 0.95, 60분 기준)",test,7.14,10.32,13.8,20.28,6045
+GRU+bolt-base,검증 비중(예측 거리별),val,7.64,11.73,16.11,21.06,8009
+GRU+bolt-base,검증 비중(예측 거리별),test,6.98,10.09,13.64,20.28,6045

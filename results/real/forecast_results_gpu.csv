@@ -1,0 +1,5 @@
+name,kind,L,use_sched,holdout,epochs,train_sec,val_co2_60,coverage,params,n_train,test_co2_5,test_co2_15,test_co2_30,test_co2_60,test_temperature_5,test_temperature_15,test_temperature_30,test_temperature_60
+gru_L24_nosched,gru,24,False,,12,126.0,20.43,0.9998,56728,198347,7.032,11.917,22.87,38.081,0.015,0.029,0.112,0.179
+gru_L48_nosched,gru,48,False,,9,111.5,24.02,0.9998,56728,198157,6.945,12.207,23.473,40.658,0.016,0.031,0.054,0.093
+tcn_L24_nosched,tcn,24,False,,9,148.2,20.58,0.9998,78872,198347,7.043,12.2,23.184,40.131,0.015,0.03,0.053,0.089
+tcn_L48_nosched,tcn,48,False,,11,179.7,22.3,0.9998,78872,198157,6.965,12.0,23.07,39.962,0.015,0.029,0.052,0.09

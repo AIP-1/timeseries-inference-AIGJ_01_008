@@ -1,0 +1,52 @@
+{
+ "sensors": {
+  "wal_bytes": 7592171,
+  "tsm_bytes": 685,
+  "age_days": 1.028,
+  "wal_bytes_per_day": 7383499.211345808,
+  "points_24h_exact": {
+   "collector": 19766,
+   "env": 63549,
+   "hvac": 60264,
+   "inference": 23998,
+   "uplink": 68319
+  }
+ },
+ "history": {
+  "tsm_bytes": 39487894,
+  "values": 6772067,
+  "span": [
+   "2025-08-01 00:00:00",
+   "2026-10-19 23:59:00"
+  ],
+  "days": 445.0,
+  "bytes_per_value": 5.8309957653992495,
+  "mb_per_week": 0.6211588524950882
+ },
+ "report": {
+  "file": "coverage_20261021.md",
+  "hours_running": 17.8,
+  "devices": 11,
+  "main_series": 28,
+  "msgs_per_day": 10644.943820224718,
+  "main_values_per_day": 25960.449438202246
+ },
+ "pg": {
+  "rows": 44131,
+  "total_bytes": 26009600,
+  "rows_24h": 43064,
+  "bytes_per_row": 589.3725499082278,
+  "rows_24h_by_measurement": {
+   "collector": 1418,
+   "inference": 3921,
+   "uplink": 13674,
+   "env": 13566,
+   "hvac": 10485
+  }
+ },
+ "assumptions": {
+  "PTS_PER_MSG": 10,
+  "PG_ROW_BYTES": 500,
+  "exact": true
+ }
+}

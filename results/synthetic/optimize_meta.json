@@ -1,0 +1,15 @@
+{
+ "power_mode": "NV Power Mode: 25W",
+ "clocks_locked": false,
+ "warmup": 50,
+ "iters": 500,
+ "threads": 4,
+ "torch": "2.11.0+cu130",
+ "tensorrt": "10.16.2.10",
+ "vent_mlp_quality": {
+  "recall": 0.9705882352941176,
+  "macro_f1": 0.8096358454358613
+ },
+ "forecaster_L": 48,
+ "note": "jetson_clocks(클럭 고정)는 sudo가 필요해 쓰지 않았다. 팀원 작업이 같은 보드에서 돌고 있어 수치에 잡음이 있을 수 있다"
+}

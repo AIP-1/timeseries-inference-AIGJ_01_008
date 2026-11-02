@@ -1,0 +1,18 @@
+space,type,start,observable,detected,delay_min,culprit_ok,오토인코더,오토인코더 지연,규칙(급변·고정·영점),규칙(급변·고정·영점) 지연,규칙: 정상 범위,규칙: 정상 범위 지연,예측 오차(심화),예측 오차(심화) 지연
+classroom_a,vent_failure,2026-10-05 10:01:00,True,True,44.0,True,False,,False,,True,44.0,True,44.0
+meeting,ac_failure,2026-10-05 10:41:00,True,False,,,False,,False,,False,,True,29.0
+meeting,spike,2026-10-06 07:30:00,True,True,2.0,True,True,5.0,True,2.0,False,,False,
+classroom_a,stuck,2026-10-06 12:27:00,True,True,29.0,True,False,,True,29.0,False,,False,
+classroom_b,spike,2026-10-07 00:32:00,True,True,1.0,True,False,,True,1.0,False,,False,
+meeting,stuck,2026-10-07 14:35:00,True,True,29.0,True,True,240.0,True,29.0,False,,False,
+classroom_b,ac_failure,2026-10-08 09:29:00,True,True,126.0,True,False,,False,,True,126.0,False,
+classroom_a,ac_failure,2026-10-08 09:51:00,True,True,124.0,True,False,,False,,True,124.0,False,
+lounge,stuck,2026-10-08 11:13:00,False,False,,,False,,False,,False,,False,
+classroom_b,spike,2026-10-08 15:31:00,True,True,1.0,True,False,,True,1.0,False,,False,
+lounge,spike,2026-10-09 02:40:00,False,False,,,False,,False,,False,,False,
+meeting,vent_failure,2026-10-09 12:29:00,True,True,36.0,True,False,,False,,True,36.0,False,
+classroom_b,vent_failure,2026-10-09 14:17:00,True,True,123.0,True,False,,False,,True,123.0,False,
+classroom_a,spike,2026-10-10 04:01:00,True,True,1.0,True,False,,True,1.0,False,,False,
+lounge,drift,2026-10-10 13:26:00,True,True,144.0,True,True,569.0,True,289.0,True,144.0,True,359.0
+classroom_b,drift,2026-10-10 22:10:00,True,True,235.0,True,True,270.0,True,400.0,True,235.0,True,290.0
+classroom_a,spike,2026-10-11 01:23:00,True,True,1.0,True,True,7.0,True,1.0,False,,False,

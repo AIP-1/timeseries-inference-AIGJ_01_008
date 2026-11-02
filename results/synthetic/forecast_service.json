@@ -1,0 +1,21 @@
+{
+ "name": "gru_L48_generic",
+ "kind": "gru",
+ "L": 48,
+ "use_sched": false,
+ "holdout": null,
+ "epochs": 13,
+ "train_sec": 27.3,
+ "val_co2_60": 34.29,
+ "coverage": 0.9841,
+ "params": 56728,
+ "n_train": 31635,
+ "test_co2_5": 8.099,
+ "test_co2_15": 12.784,
+ "test_co2_30": 18.866,
+ "test_co2_60": 28.6,
+ "test_temperature_5": 0.068,
+ "test_temperature_15": 0.115,
+ "test_temperature_30": 0.189,
+ "test_temperature_60": 0.336
+}

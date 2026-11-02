@@ -1,0 +1,10 @@
+.env
+*.env
+!.env.example
+data/
+__pycache__/
+*.pyc
+logs/
+*.engine
+passwd
+.DS_Store

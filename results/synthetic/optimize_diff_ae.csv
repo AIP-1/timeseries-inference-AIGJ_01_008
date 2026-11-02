@@ -1,0 +1,5 @@
+모델,실행,재구성_최대차
+이상 탐지 AE,PyTorch CPU,0.0
+이상 탐지 AE,PyTorch GPU,7.748603820800781e-07
+이상 탐지 AE,ONNX Runtime CPU,7.748603820800781e-07
+이상 탐지 AE,TensorRT FP16,0.0009893178939819336

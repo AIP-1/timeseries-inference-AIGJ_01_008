@@ -1,0 +1,15 @@
+chronos-forecasting==2.3.2
+fastapi==0.150.0
+influxdb-client==1.50.0
+numpy==2.5.4
+onnx==1.23.2
+onnxruntime==1.31.0
+pandas==3.0.6
+paho-mqtt==2.1.0
+psutil==7.2.2
+psycopg[binary]==3.3.6
+PyYAML==6.0.3
+scikit-learn==1.9.1
+tensorrt==10.16.2.10
+torch==2.11.0
+uvicorn==0.54.0
